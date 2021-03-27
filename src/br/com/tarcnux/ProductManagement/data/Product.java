@@ -26,10 +26,10 @@ public class Product {
      */
     public static final BigDecimal DISCOUNT_RATE = BigDecimal.valueOf(0.1);
     
-    private Integer id;
-    private String name;
-    private BigDecimal price;
-    private Rating rating;
+    private final Integer id;
+    private final String name;
+    private final BigDecimal price;
+    private final Rating rating;
 
     public Product(Integer id, String name, BigDecimal price, Rating rating) {
         this.id = id;
@@ -51,25 +51,25 @@ public class Product {
         return id;
     }
 
-    public void setId(final Integer id) {
-        this.id = id;
-    }
+//    public void setId(final Integer id) {
+//        this.id = id;
+//    }
 
     public String getName() {
         return name;
     }
 
-    public void setName(final String name) {
-        this.name = name;
-    }
+//    public void setName(final String name) {
+//        this.name = name;
+//    }
 
     public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(final BigDecimal price) {        
-        this.price = price;
-    }
+//    public void setPrice(final BigDecimal price) {        
+//        this.price = price;
+//    }
 
     public Rating getRating() {
         return rating;
@@ -84,6 +84,10 @@ public class Product {
      */
     public BigDecimal getDiscount() {
         return price.multiply(DISCOUNT_RATE).setScale(2,RoundingMode.HALF_UP);
+    }
+    
+    public Product applyRating(Rating newRating) {
+        return new Product(this.id, this.name, this.price, newRating);
     }
     
     @Override
