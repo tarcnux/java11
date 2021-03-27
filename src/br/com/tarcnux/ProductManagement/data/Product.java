@@ -5,13 +5,26 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 /**
- *
+ * {@code Product} class represents properties and behaviors of
+ * products objects in the Product Management System.
+ * <br>
+ * Each product has an id, name, and price
+ * <br>
+ * Each product can have a discount, calculated based on a
+ * {@link DISCOUNT_RATE discount rate }
+ * @version 1.0
  * @author tarcnux
  */
 public class Product {
     private Integer id;
     private String name;
     private BigDecimal price;
+    /**
+     * A constant that defines a
+     * {@link java.math.BigDecimal BigDecimal} value of the discount rate
+     * <br>
+     * Discount rate is 10%
+     */
     public static final BigDecimal DISCOUNT_RATE = BigDecimal.valueOf(0.1);
 
     public Integer getId() {
@@ -38,6 +51,12 @@ public class Product {
         this.price = price;
     }
 
+    /**
+     * calculates discount based on a product price and
+     * {@link DISCOUNT_RATE discount rate}
+     * @return {@link java.math.BigDecimal BigDecimal}
+     * value of the discount
+     */
     public BigDecimal getDiscount() {
         return price.multiply(DISCOUNT_RATE).setScale(2,RoundingMode.HALF_UP);
     }
