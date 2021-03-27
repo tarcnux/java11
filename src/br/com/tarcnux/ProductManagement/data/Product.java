@@ -26,6 +26,7 @@ public class Product {
      * Discount rate is 10%
      */
     public static final BigDecimal DISCOUNT_RATE = BigDecimal.valueOf(0.1);
+    private Rating rating;
 
     public Integer getId() {
         return id;
@@ -50,6 +51,11 @@ public class Product {
     public void setPrice(final BigDecimal price) {        
         this.price = price;
     }
+
+    public Rating getRating() {
+        return rating;
+    }
+    
 
     /**
      * calculates discount based on a product price and
