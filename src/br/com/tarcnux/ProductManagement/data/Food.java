@@ -18,12 +18,22 @@ public class Food extends Product{
         this.bestBefore = bestBefore;
     }
 
+    /**
+     *
+     * @param newRating
+     * @return Food Object
+     */
+    @Override
+    public Product applyRating(Rating newRating) {
+        return new Food(getId(), getName(), getPrice(), newRating, bestBefore);
+    }
 
     /**
      * Get the value of bestBefore
      *
      * @return the value of bestBefore
      */
+    @Override
     public LocalDate getBestBefore() {
         return bestBefore;
     }
@@ -34,16 +44,4 @@ public class Food extends Product{
                 super.getDiscount() : BigDecimal.ZERO); 
 
     }
-    
-    
-
-    @Override
-    public String toString() {
-        return super.toString() 
-                + " Food{" + "bestBefore=" + bestBefore + '}';
-    }
-    
-    
-
-    
 }

@@ -22,6 +22,11 @@ public class Drink extends Product{
                 ? super.getDiscount() : BigDecimal.ZERO;
     }
     
+    @Override
+    public Product applyRating(Rating newRating) {
+        return new Drink(getId(), getName(), getPrice(), newRating);
+    }
+    
     
     
 }

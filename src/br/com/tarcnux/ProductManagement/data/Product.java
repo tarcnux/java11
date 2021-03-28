@@ -4,6 +4,7 @@ package br.com.tarcnux.ProductManagement.data;
 import static br.com.tarcnux.ProductManagement.data.Rating.*;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.time.LocalDate;
 import java.util.Objects;
 
 /**
@@ -17,7 +18,7 @@ import java.util.Objects;
  * @version 1.0
  * @author tarcnux
  */
-public class Product {
+public abstract class Product {
     
     /**
      * A constant that defines a
@@ -87,8 +88,15 @@ public class Product {
         return price.multiply(DISCOUNT_RATE).setScale(2,RoundingMode.HALF_UP);
     }
     
-    public Product applyRating(Rating newRating) {
-        return new Product(this.id, this.name, this.price, newRating);
+    public abstract Product applyRating(Rating newRating);
+    
+    /**
+     * Get the a fixed date of bestBefore
+     *
+     * @return the value of bestBefore
+     */
+    public LocalDate getBestBefore() {
+        return LocalDate.now();
     }
     
     @Override
@@ -98,6 +106,7 @@ public class Product {
                 + ", price= " + price 
                 + ", discount= " + getDiscount()
                 + ", rating= " + getRating().getStars()
+                + ", bestBefore = " + getBestBefore()
                 + '}';
     }
 
