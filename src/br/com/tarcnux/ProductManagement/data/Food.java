@@ -8,11 +8,11 @@ import java.time.LocalDate;
  *
  * @author tarcnux
  */
-public class Food extends Product{
+public final class Food extends Product{
     
     private final LocalDate bestBefore;
 
-    public Food(Integer id, String name, BigDecimal price, Rating rating, 
+    Food(Integer id, String name, BigDecimal price, Rating rating, 
             LocalDate bestBefore) {
         super(id, name, price, rating);
         this.bestBefore = bestBefore;

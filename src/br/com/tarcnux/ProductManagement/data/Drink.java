@@ -8,9 +8,9 @@ import java.time.LocalTime;
  *
  * @author tarcnux
  */
-public class Drink extends Product{
+public final class Drink extends Product{
 
-    public Drink(Integer id, String name, BigDecimal price, Rating rating) {
+    Drink(Integer id, String name, BigDecimal price, Rating rating) {
         super(id, name, price, rating);
     }
 
