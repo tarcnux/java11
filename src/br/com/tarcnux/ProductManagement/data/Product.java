@@ -18,7 +18,7 @@ import java.util.Objects;
  * @version 1.0
  * @author tarcnux
  */
-public abstract class Product {
+public abstract class Product implements Rateable<Product>{
     
     /**
      * A constant that defines a
@@ -73,6 +73,7 @@ public abstract class Product {
 //        this.price = price;
 //    }
 
+    @Override
     public Rating getRating() {
         return rating;
     }
@@ -88,7 +89,9 @@ public abstract class Product {
         return price.multiply(DISCOUNT_RATE).setScale(2,RoundingMode.HALF_UP);
     }
     
-    public abstract Product applyRating(Rating newRating);
+    // Método abstrato é obrigatório sua implementação na classe filha
+    //Agora este método vem da Interface Rateable
+    //public abstract Product applyRating(Rating newRating);
     
     /**
      * Get the a fixed date of bestBefore
@@ -107,7 +110,7 @@ public abstract class Product {
                 + ", discount= " + getDiscount()
                 + ", rating= " + getRating().getStars()
                 + ", bestBefore = " + getBestBefore()
-                + ", " + super.toString()
+               // + ", " + super.toString()
                 + '}';
     }
 

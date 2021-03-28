@@ -22,6 +22,10 @@ public final class Drink extends Product{
                 ? super.getDiscount() : BigDecimal.ZERO;
     }
     
+    /**
+     * @param newRating
+     * @return Drink Object
+     */
     @Override
     public Product applyRating(Rating newRating) {
         return new Drink(getId(), getName(), getPrice(), newRating);

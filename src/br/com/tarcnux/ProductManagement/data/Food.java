@@ -19,7 +19,6 @@ public final class Food extends Product{
     }
 
     /**
-     *
      * @param newRating
      * @return Food Object
      */
