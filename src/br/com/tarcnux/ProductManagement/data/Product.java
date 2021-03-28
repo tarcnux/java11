@@ -4,6 +4,7 @@ package br.com.tarcnux.ProductManagement.data;
 import static br.com.tarcnux.ProductManagement.data.Rating.*;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.Objects;
 
 /**
  * {@code Product} class represents properties and behaviors of
@@ -92,13 +93,40 @@ public class Product {
     
     @Override
     public String toString() {
-        return  super.toString()
-                + "\nProduct{" + "id= " + id 
+        return  "Product{" + "id= " + id 
                 + ", name= " + name 
                 + ", price= " + price 
                 + ", discount= " + getDiscount()
                 + ", rating= " + getRating().getStars()
                 + '}';
     }
-      
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 41 * hash + Objects.hashCode(this.id);
+        hash = 41 * hash + Objects.hashCode(this.name);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+//        if (getClass() != obj.getClass()) {
+//            return false;
+//        }
+        final Product other = (Product) obj;
+        if (!Objects.equals(this.name, other.name)) {
+            return false;
+        }
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        return true;
+    }
 }
