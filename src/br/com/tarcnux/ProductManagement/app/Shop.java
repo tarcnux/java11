@@ -27,7 +27,13 @@ public class Shop {
         Product p1 = pm.createProduct(101, "Tea", BigDecimal.valueOf(1.99), 
                 Rating.NOT_RATED);
         pm.printProductReport();
+        
         p1 = pm.reviewProduct(p1, Rating.FOUR_STAR, "Chá do bão moço!");
+        p1 = pm.reviewProduct(p1, Rating.TWO_STAR, "Duas estrelas");
+        p1 = pm.reviewProduct(p1, Rating.ONE_STAR, "Uma estrela");
+        p1 = pm.reviewProduct(p1, Rating.FIVE_STAR, "Cinco estrelas");
+        p1 = pm.reviewProduct(p1, Rating.FIVE_STAR, "Mais Cinco estrelas");
+        p1 = pm.reviewProduct(p1, Rating.THREE_STAR, "Três estrelas");
         pm.printProductReport();
         
 //        Product p2 = pm.createProduct(102, "Coffee", BigDecimal.valueOf(1.99), 
