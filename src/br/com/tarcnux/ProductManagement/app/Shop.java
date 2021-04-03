@@ -24,9 +24,9 @@ public class Shop {
         
         ProductManager pm = new ProductManager(Locale.UK);
         
-        Product p1 = pm.createProduct(101, "Tea", BigDecimal.valueOf(1.99), 
+        Product p1 = pm.createProduct(101, "Tea", BigDecimal.valueOf(1.65), 
                 Rating.NOT_RATED);
-        pm.printProductReport();
+        pm.printProductReport(p1);
         
         p1 = pm.reviewProduct(p1, Rating.FOUR_STAR, "Chá do bão moço!");
         p1 = pm.reviewProduct(p1, Rating.TWO_STAR, "Duas estrelas");
@@ -34,44 +34,13 @@ public class Shop {
         p1 = pm.reviewProduct(p1, Rating.FIVE_STAR, "Cinco estrelas");
         p1 = pm.reviewProduct(p1, Rating.FIVE_STAR, "Mais Cinco estrelas");
         p1 = pm.reviewProduct(p1, Rating.THREE_STAR, "Três estrelas");
-        pm.printProductReport();
+        pm.printProductReport(p1);
         
-//        Product p2 = pm.createProduct(102, "Coffee", BigDecimal.valueOf(1.99), 
-//                Rating.FOUR_STAR);
-//        Product p3 = pm.createProduct(103, "Cake", BigDecimal.valueOf(3.99), 
-//                Rating.FIVE_STAR, LocalDate.now().plusDays(2));
-//        Product p4 = pm.createProduct(105, "Cookie", BigDecimal.valueOf(0.99), 
-//                Rating.ONE_STAR, LocalDate.now());
-//        Product p5 = p3.applyRating(Rating.THREE_STAR);
-//
-//        Product p6 = pm.createProduct(104, "Chocolate", BigDecimal.valueOf(2.99), 
-//                Rating.FIVE_STAR);
-//        Product p7 = pm.createProduct(104, "Chocolate", BigDecimal.valueOf(2.99), 
-//                Rating.FIVE_STAR, LocalDate.now().plusDays(2));
-//        
-//        Product p8 = p4.applyRating(Rating.FIVE_STAR);
-//        Product p9 = p1.applyRating(Rating.TWO_STAR);
-        
-
-//        System.out.println("p6 é igual a p7? - " + p6.equals(p7));
-//        
-//        if (p3 instanceof Food) {
-//            LocalDate p3BestBefore = ((Food)p3).getBestBefore();
-//            System.out.println("p3BestBefore: " + p3BestBefore);
-//        }
-
-//        p1.setId(101);
-//        p1.setName("Tea");
-//        p1.setPrice(BigDecimal.valueOf(1.99));
-//        System.out.println(p1);
-//        System.out.println(p2);
-//        System.out.println(p3);
-//        System.out.println(p4);
-//        System.out.println(p5);
-//        System.out.println(p6);
-//        System.out.println(p7);
-//        System.out.println(p8);
-//        System.out.println(p9);
+        Product p2 = pm.createProduct(102, "Coffee", BigDecimal.valueOf(1.99), Rating.NOT_RATED);
+        p2 = pm.reviewProduct(p2, Rating.THREE_STAR, "Coffe was ok");
+        p2 = pm.reviewProduct(p2, Rating.ONE_STAR, "Where is the milk");
+        p2 = pm.reviewProduct(p2, Rating.FIVE_STAR, "It's perfeect with then spoon of sugar");
+        pm.printProductReport(p2);
 
     }
 
