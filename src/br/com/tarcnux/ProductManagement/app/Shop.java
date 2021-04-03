@@ -9,6 +9,7 @@ import br.com.tarcnux.ProductManagement.data.Product;
 import br.com.tarcnux.ProductManagement.data.ProductManager;
 import br.com.tarcnux.ProductManagement.data.Rating;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 //import java.time.LocalDate;
 import java.util.Locale;
 
@@ -28,19 +29,26 @@ public class Shop {
                 Rating.NOT_RATED);
         pm.printProductReport(p1);
         
-        p1 = pm.reviewProduct(p1, Rating.FOUR_STAR, "Chá do bão moço!");
-        p1 = pm.reviewProduct(p1, Rating.TWO_STAR, "Duas estrelas");
-        p1 = pm.reviewProduct(p1, Rating.ONE_STAR, "Uma estrela");
-        p1 = pm.reviewProduct(p1, Rating.FIVE_STAR, "Cinco estrelas");
-        p1 = pm.reviewProduct(p1, Rating.FIVE_STAR, "Mais Cinco estrelas");
-        p1 = pm.reviewProduct(p1, Rating.THREE_STAR, "Três estrelas");
-        pm.printProductReport(p1);
+        p1 = pm.reviewProduct(101, Rating.FOUR_STAR, "Chá do bão moço!");
+        p1 = pm.reviewProduct(101, Rating.TWO_STAR, "Duas estrelas");
+        p1 = pm.reviewProduct(101, Rating.ONE_STAR, "Uma estrela");
+        p1 = pm.reviewProduct(101, Rating.FIVE_STAR, "Cinco estrelas");
+        p1 = pm.reviewProduct(101, Rating.FIVE_STAR, "Mais Cinco estrelas");
+        p1 = pm.reviewProduct(101, Rating.THREE_STAR, "Três estrelas");
+        pm.printProductReport(101);
         
         Product p2 = pm.createProduct(102, "Coffee", BigDecimal.valueOf(1.99), Rating.NOT_RATED);
-        p2 = pm.reviewProduct(p2, Rating.THREE_STAR, "Coffe was ok");
-        p2 = pm.reviewProduct(p2, Rating.ONE_STAR, "Where is the milk");
-        p2 = pm.reviewProduct(p2, Rating.FIVE_STAR, "It's perfeect with then spoon of sugar");
-        pm.printProductReport(p2);
+        p2 = pm.reviewProduct(102, Rating.THREE_STAR, "Coffe was ok");
+        p2 = pm.reviewProduct(102, Rating.ONE_STAR, "Where is the milk");
+        p2 = pm.reviewProduct(102, Rating.FIVE_STAR, "It's perfeect with then spoon of sugar");
+        pm.printProductReport(102);
+        
+        Product p3 = pm.createProduct(103, "Cake", BigDecimal.valueOf(3.99), Rating.NOT_RATED, LocalDate.now().plusDays(2));
+        p3 = pm.reviewProduct(103, Rating.FIVE_STAR, "Very nice Cake");
+        p3 = pm.reviewProduct(103, Rating.FOUR_STAR, "It is good, but I've expected more chocolate");
+        p3 = pm.reviewProduct(103, Rating.FIVE_STAR, "This cake is perfect");
+        pm.printProductReport(103);
+                
 
     }
 

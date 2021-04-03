@@ -114,32 +114,37 @@ public abstract class Product implements Rateable<Product>{
                 + '}';
     }
 
+    /**
+     * 03/04/2021 - Refatorado
+     * Retorna o hash de um objeto dado o seu id
+     * @return hash
+     */
     @Override
     public int hashCode() {
         int hash = 3;
         hash = 41 * hash + Objects.hashCode(this.id);
-        hash = 41 * hash + Objects.hashCode(this.name);
+//        hash = 41 * hash + Objects.hashCode(this.name);
         return hash;
     }
 
+    /**
+     * 03/04/2021 - Refatorado
+     * Verifica se dois Produtos são iguais pelo id
+     * @param obj
+     * @return 
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
             return true;
         }
-        if (obj == null) {
-            return false;
+        if (obj instanceof Product) {
+            final Product other = (Product) obj;
+//            return this.id == other.id;
+            return Objects.equals(this.id, other.id);
         }
-//        if (getClass() != obj.getClass()) {
-//            return false;
-//        }
-        final Product other = (Product) obj;
-        if (!Objects.equals(this.name, other.name)) {
-            return false;
-        }
-        if (!Objects.equals(this.id, other.id)) {
-            return false;
-        }
-        return true;
+        
+        return false;
+        
     }
 }
